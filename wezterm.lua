@@ -14,7 +14,7 @@ local config = {
   font_rules = {
     {
       italic = true,
-      font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular", italic = true }),
+      font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Bold", italic = true }),
     },
   },
   adjust_window_size_when_changing_font_size = true,
