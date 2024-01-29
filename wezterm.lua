@@ -22,7 +22,7 @@ local config = {
   warn_about_missing_glyphs = false,
   keys = {
     { key = "F4",        action = "ToggleFullScreen" },
-    { key = "F5",        action = "ReloadConfiguration" },
+    -- { key = "F5",        action = "ReloadConfiguration" },
     { key = "+",         mods = "CTRL",                 action = "IncreaseFontSize" },
     { key = "_",         mods = "CTRL",                 action = "DecreaseFontSize" },
     { key = "Backspace", mods = "CTRL",                 action = "ResetFontSize" },
