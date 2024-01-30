@@ -1,6 +1,8 @@
 local wezterm = require "wezterm"
+local mux = wezterm.mux
 
 local config = {
+  default_prog = { "/bin/zsh", "-l" },
   allow_square_glyphs_to_overflow_width = "Never",
   hide_mouse_cursor_when_typing = true,
   quit_when_all_windows_are_closed = true,
