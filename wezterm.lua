@@ -6,7 +6,7 @@ local config = {
   hide_mouse_cursor_when_typing = true,
   quit_when_all_windows_are_closed = true,
 
-  color_scheme = "Solarized Dark Higher Contrast",
+  color_scheme = "Solarized Dark Higher Contrast (Gogh)",
   font_size = 18,
   line_height = 1.0,
   font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" }),
