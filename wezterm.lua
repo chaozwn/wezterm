@@ -1,5 +1,4 @@
 local wezterm = require "wezterm"
-local mux = wezterm.mux
 
 local config = {
   default_prog = { "/bin/zsh", "-l" },
