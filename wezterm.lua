@@ -2,8 +2,6 @@ local wezterm = require "wezterm"
 
 local config = {
   default_prog = { "/bin/zsh", "-l" },
-  allow_square_glyphs_to_overflow_width = "Never",
-  hide_mouse_cursor_when_typing = true,
   quit_when_all_windows_are_closed = true,
 
   color_scheme = "Solarized Dark Higher Contrast",
@@ -16,9 +14,9 @@ local config = {
       font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Bold", italic = true }),
     },
   },
+  harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
   adjust_window_size_when_changing_font_size = true,
   native_macos_fullscreen_mode = true,
-  warn_about_missing_glyphs = false,
   keys = {
     { key = "F4", action = "ToggleFullScreen" },
     -- { key = "F5",        action = "ReloadConfiguration" },
