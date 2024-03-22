@@ -32,6 +32,8 @@ local config = {
     { key = "/", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;47~" },
     { key = "~", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;126~" },
     { key = "`", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;96~" },
+    { key = "C", mods = "CMD", action = wezterm.action { CopyTo = "Clipboard" } },
+    { key = "V", mods = "CMD", action = wezterm.action { PasteFrom = "Clipboard" } },
   },
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
