@@ -54,7 +54,8 @@ end
 ---@param window any? WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
 function BackDrops:random(window)
   self.current_idx = math.random(#self.files)
-  wezterm.GLOBAL.background = self.files[self.current_idx]
+  -- wezterm.GLOBAL.background = self.files[self.current_idx]
+  self:cycle_forward(window)
 end
 
 ---Cycle the loaded `files` and select the next background
