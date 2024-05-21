@@ -14,7 +14,11 @@ function M.apply_to_config(config)
       mods = "NONE",
       action = act.CompleteSelection "ClipboardAndPrimarySelection",
     },
-
+    {
+      event = { Down = { streak = 1, button = "Right" } },
+      mods = "NONE",
+      action = act { PasteFrom = "Clipboard" },
+    },
     -- and make CTRL-Click open hyperlinks
     {
       event = { Up = { streak = 1, button = "Left" } },
