@@ -1,7 +1,7 @@
 local wezterm = require "wezterm"
 local colors = require "colors.custom"
 
-require('utils.backdrops'):set_files():random()
+-- require('utils.backdrops'):set_files():random()
 
 local config = {
   default_prog = { "/bin/zsh", "-l" },
@@ -9,8 +9,9 @@ local config = {
 
   term = "xterm-256color",
   animation_fps = 60,
-  max_fps = 60,
+  max_fps = 120,
   front_end = "WebGpu",
+  webgpu_power_preference = "HighPerformance",
 
   color_scheme = "Catppuccin Mocha",
   font_size = 18,
@@ -26,22 +27,22 @@ local config = {
   adjust_window_size_when_changing_font_size = true,
   native_macos_fullscreen_mode = true,
   keys = {
-    { key = "F4",        action = "ToggleFullScreen" },
+    { key = "F4", action = "ToggleFullScreen" },
     -- { key = "F5",        action = "ReloadConfiguration" },
-    { key = "+",         mods = "CTRL",              action = "IncreaseFontSize" },
-    { key = "-",         mods = "CTRL",              action = "DecreaseFontSize" },
-    { key = "Backspace", mods = "CTRL",              action = "ResetFontSize" },
-    { key = "'",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;39~" },
-    { key = "(",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;40~" },
-    { key = ")",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;41~" },
-    { key = ",",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;44~" },
-    { key = ".",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;46~" },
-    { key = ";",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;59~" },
-    { key = "/",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;47~" },
-    { key = "~",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;126~" },
-    { key = "`",         mods = "CTRL",              action = wezterm.action.SendString "\x1b[27;5;96~" },
-    { key = "C",         mods = "CMD",               action = wezterm.action { CopyTo = "Clipboard" } },
-    { key = "V",         mods = "CMD",               action = wezterm.action { PasteFrom = "Clipboard" } },
+    { key = "+", mods = "CTRL", action = "IncreaseFontSize" },
+    { key = "-", mods = "CTRL", action = "DecreaseFontSize" },
+    { key = "Backspace", mods = "CTRL", action = "ResetFontSize" },
+    { key = "'", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;39~" },
+    { key = "(", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;40~" },
+    { key = ")", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;41~" },
+    { key = ",", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;44~" },
+    { key = ".", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;46~" },
+    { key = ";", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;59~" },
+    { key = "/", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;47~" },
+    { key = "~", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;126~" },
+    { key = "`", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;96~" },
+    { key = "C", mods = "CMD", action = wezterm.action { CopyTo = "Clipboard" } },
+    { key = "V", mods = "CMD", action = wezterm.action { PasteFrom = "Clipboard" } },
   },
   send_composed_key_when_left_alt_is_pressed = false,
   send_composed_key_when_right_alt_is_pressed = false,
@@ -53,17 +54,17 @@ local config = {
   window_decorations = "RESIZE",
   show_new_tab_button_in_tab_bar = false,
   window_background_opacity = 0.8,
-  background = {
-    {
-      source = { File = wezterm.GLOBAL.background },
-    },
-    {
-      source = { Color = colors.background },
-      height = "100%",
-      width = "100%",
-      opacity = 0.90,
-    },
-  },
+  -- background = {
+  --   {
+  --     source = { File = wezterm.GLOBAL.background },
+  --   },
+  --   {
+  --     source = { Color = colors.background },
+  --     height = "100%",
+  --     width = "100%",
+  --     opacity = 0.90,
+  --   },
+  -- },
   macos_window_background_blur = 30,
   window_close_confirmation = "NeverPrompt",
 
