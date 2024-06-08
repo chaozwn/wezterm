@@ -53,7 +53,7 @@ local config = {
   hide_tab_bar_if_only_one_tab = true,
   window_decorations = "RESIZE",
   show_new_tab_button_in_tab_bar = false,
-  window_background_opacity = 0.8,
+  -- window_background_opacity = 0.8,
   -- background = {
   --   {
   --     source = { File = wezterm.GLOBAL.background },
@@ -65,7 +65,7 @@ local config = {
   --     opacity = 0.90,
   --   },
   -- },
-  macos_window_background_blur = 30,
+  -- macos_window_background_blur = 30,
   window_close_confirmation = "NeverPrompt",
 
   -- text_background_opacity = 0.9,
