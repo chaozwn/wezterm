@@ -58,7 +58,7 @@ local config = {
   hide_tab_bar_if_only_one_tab = true,
   window_decorations = "RESIZE",
   show_new_tab_button_in_tab_bar = false,
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.90,
   -- background = {
   --   {
   --     source = { File = wezterm.GLOBAL.background },
