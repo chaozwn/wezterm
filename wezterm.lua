@@ -13,7 +13,7 @@ local config = {
   front_end = "WebGpu",
   webgpu_power_preference = "HighPerformance",
 
-  color_scheme = "Catppuccin Mocha",
+  color_scheme = "Solarized Dark Higher Contrast (Gogh)",
   font_size = 18,
   line_height = 1.0,
   font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" }),
