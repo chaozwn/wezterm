@@ -70,7 +70,7 @@ local config = {
   --     opacity = 0.90,
   --   },
   -- },
-  -- macos_window_background_blur = 20,
+  macos_window_background_blur = 20,
   window_close_confirmation = "NeverPrompt",
 
   -- text_background_opacity = 0.9,
