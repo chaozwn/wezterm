@@ -1,8 +1,6 @@
 local wezterm = require "wezterm" --[[@as Wezterm]]
 local config = wezterm.config_builder()
-wezterm.log_info "reloading"
 
-require("mouse").setup(config)
 require("links").setup(config)
 require("keys").setup(config)
 
@@ -15,6 +13,7 @@ config.cursor_blink_ease_out = "Constant"
 -- Colorscheme
 config.color_scheme_dirs = { wezterm.home_dir .. "/tokyonight" }
 config.color_scheme = "tokyonight_moon"
+
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
 config.colors = {
@@ -26,6 +25,7 @@ config.window_decorations = "RESIZE"
 -- Fonts
 config.font_size = 18
 config.line_height = 1.0
+
 config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
 config.font_rules = {
   {
@@ -52,7 +52,6 @@ config.term = "xterm-256color"
 config.animation_fps = 60
 config.max_fps = 120
 config.adjust_window_size_when_changing_font_size = true
-config.native_macos_fullscreen_mode = true
 
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
