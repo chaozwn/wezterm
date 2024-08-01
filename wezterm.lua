@@ -1,88 +1,70 @@
-local wezterm = require "wezterm"
-local colors = require "colors.custom"
+local wezterm = require "wezterm" --[[@as Wezterm]]
+local config = wezterm.config_builder()
+wezterm.log_info "reloading"
 
--- require('utils.backdrops'):set_files():random()
+require("mouse").setup(config)
+require("links").setup(config)
+require("keys").setup(config)
 
-local config = {
-  default_prog = { "/bin/zsh", "-l" },
-  quit_when_all_windows_are_closed = true,
+config.enable_wayland = true
+config.webgpu_power_preference = "HighPerformance"
 
-  term = "xterm-256color",
-  animation_fps = 60,
-  max_fps = 120,
-  front_end = "WebGpu",
-  webgpu_power_preference = "HighPerformance",
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 
-  color_scheme = "Solarized Dark Higher Contrast (Gogh)",
-  font_size = 18,
-  line_height = 1.0,
-  font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" }),
-  font_rules = {
-    {
-      italic = true,
-      font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Bold", italic = true }),
-    },
-  },
-  harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
-  adjust_window_size_when_changing_font_size = true,
-  native_macos_fullscreen_mode = true,
-  keys = {
-    { key = "F4", action = "ToggleFullScreen" },
-    -- { key = "F5",        action = "ReloadConfiguration" },
-    { key = "+", mods = "CTRL", action = "IncreaseFontSize" },
-    { key = "-", mods = "CTRL", action = "DecreaseFontSize" },
-    { key = "Backspace", mods = "CTRL", action = "ResetFontSize" },
-    { key = "'", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;39~" },
-    { key = "(", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;40~" },
-    { key = ")", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;41~" },
-    { key = ",", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;44~" },
-    { key = ".", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;46~" },
-    { key = ";", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;59~" },
-    { key = "/", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;47~" },
-    { key = "~", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;126~" },
-    { key = "`", mods = "CTRL", action = wezterm.action.SendString "\x1b[27;5;96~" },
-    { key = "C", mods = "CMD", action = wezterm.action { CopyTo = "Clipboard" } },
-    { key = "V", mods = "CMD", action = wezterm.action { PasteFrom = "Clipboard" } },
-    {
-      key = "Enter",
-      mods = "SHIFT",
-      action = wezterm.action.SendString "\x1b[13;2u",
-    },
-  },
-  send_composed_key_when_left_alt_is_pressed = false,
-  send_composed_key_when_right_alt_is_pressed = false,
+-- Colorscheme
+config.color_scheme_dirs = { wezterm.home_dir .. "/tokyonight" }
+config.color_scheme = "tokyonight_moon"
+wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
-  enable_tab_bar = false,
-  enable_scroll_bar = false,
-  use_fancy_tab_bar = false,
-  hide_tab_bar_if_only_one_tab = true,
-  window_decorations = "RESIZE",
-  show_new_tab_button_in_tab_bar = false,
-  window_background_opacity = 0.90,
-  -- background = {
-  --   {
-  --     source = { File = wezterm.GLOBAL.background },
-  --   },
-  --   {
-  --     source = { Color = colors.background },
-  --     height = "100%",
-  --     width = "100%",
-  --     opacity = 0.90,
-  --   },
-  -- },
-  macos_window_background_blur = 20,
-  window_close_confirmation = "NeverPrompt",
-
-  -- text_background_opacity = 0.9,
-  window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
-  },
-  hyperlink_rules = wezterm.default_hyperlink_rules(),
+config.colors = {
+  indexed = { [241] = "#65bcff" },
 }
 
-require("mousebinds").apply_to_config(config)
+config.window_decorations = "RESIZE"
+
+-- Fonts
+config.font_size = 18
+config.line_height = 1.0
+config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+config.font_rules = {
+  {
+    italic = true,
+    font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Bold", italic = true }),
+  },
+}
+config.bold_brightens_ansi_colors = true
+
+-- Cursor
+config.default_cursor_style = "BlinkingBar"
+config.force_reverse_video_cursor = true
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+
+config.scrollback_lines = 10000
+
+-- Command Palette
+config.command_palette_font_size = 13
+config.command_palette_bg_color = "#394b70"
+config.command_palette_fg_color = "#828bb8"
+
+config.quit_when_all_windows_are_closed = true
+config.term = "xterm-256color"
+config.animation_fps = 60
+config.max_fps = 120
+config.adjust_window_size_when_changing_font_size = true
+config.native_macos_fullscreen_mode = true
+
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+
+config.enable_tab_bar = false
+config.enable_scroll_bar = false
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+config.show_new_tab_button_in_tab_bar = false
+-- config.window_background_opacity = 0.90
+-- config.macos_window_background_blur = 20
+
+config.window_close_confirmation = "NeverPrompt"
 
 return config
