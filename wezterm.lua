@@ -21,13 +21,13 @@ config.colors = {
 config.window_decorations = "RESIZE"
 
 -- Fonts
-config.font_size = 18
+config.font_size = 16
 config.line_height = 1.0
-config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" })
 config.font_rules = {
   {
     italic = true,
-    font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Bold", italic = true }),
+    font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold", italic = true }),
   },
 }
 config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" }
